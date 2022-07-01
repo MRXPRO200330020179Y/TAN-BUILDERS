@@ -1,0 +1,1332 @@
+@import "files/color";
+@import "files/mixins";
+@import "files/fonts";
+
+body {
+    font-family: "Proxima Nova", sans-serif;
+}
+
+.continer {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+// header start
+
+.header {
+    position: relative;
+    height: 100px;
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__menu__ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        li+li {
+            margin-left: 40px;
+        }
+    }
+
+    &__minu__link {
+        @include fontAll(14px, 600, $link);
+        line-height: 17px;
+        text-transform: uppercase;
+        position: relative;
+        @extend%transition;
+
+        &:hover {
+            color: $gren;
+        }
+
+        &::after {
+            content: "";
+            display: none;
+            width: 100%;
+            height: 6px;
+            background-color: $gren;
+        }
+    }
+
+    &__logo {
+        @include fiximg(285px, 80px, true);
+        margin-top: 14px;
+    }
+
+    &__burger {
+        @include fontAll(40px, 700, $gren);
+        background-color: transparent;
+        display: none;
+        margin-top: 15px;
+    }
+}
+
+.header__menu__ul li:hover>.header__minu__link::after {
+    display: block;
+    position: absolute;
+    margin-top: 40px;
+    @extend%transition;
+}
+
+.header__aktiv {
+    position: fixed;
+    top: 0;
+    background-color: $text;
+    padding: 7px 0;
+    border-bottom: 3px solid #0B2625;
+    width: 100%;
+    z-index: 9999999999999999;
+}
+
+.header__nav__button__x {
+    display: none;
+}
+
+#chikit {
+    display: none;
+}
+
+// header end
+
+
+// slaeder-top start
+
+.slaeder {
+    position: relative;
+    margin-top: -14px;
+    margin-bottom: 80px;
+
+    &__top {
+        position: relative;
+
+        .slick-dots {
+            display: flex;
+            position: absolute;
+            bottom: 50px;
+            grid-gap: 30px;
+            left: 50%;
+            transform: translate(-50%, 0);
+
+
+
+            li {
+                background-color: rgba(255, 255, 255, 0.5);
+                width: 10px;
+                height: 10px;
+                font-size: 0;
+                border-radius: 50%;
+
+                button {
+                    font-size: 0;
+                    background-color: transparent;
+                }
+            }
+
+            .slick-active {
+                background-color: $text;
+                width: 16px;
+                height: 16px;
+                margin-top: -3px;
+                border-radius: 50%;
+            }
+        }
+
+        .slick-prev {
+            font-size: 0;
+
+            &::after {
+                content: "";
+                display: block;
+                background-image: url(../foto/left.svg);
+                width: 50px;
+                position: absolute;
+                top: 50%;
+                left: 80px;
+                transform: translate(-50%, 0);
+                height: 34.53px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                z-index: 999;
+            }
+        }
+
+        .slick-next {
+            font-size: 0;
+
+            &::after {
+                content: "";
+                display: block;
+                font-size: 0;
+                background-image: url(../foto/riet.svg);
+                width: 50px;
+                position: absolute;
+                top: 50%;
+                right: 40px;
+                transform: translate(-50%, 0);
+                height: 34.53px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                z-index: 999;
+            }
+        }
+    }
+
+    &__cart1 {
+        width: 100%;
+        height: 700px !important;
+        background-repeat: no-repeat;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+    }
+
+    &__cart__text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__cart__title__h1 {
+        @include fontAll(52px, 800, $text);
+        line-height: 63px;
+        text-align: center;
+        position: relative;
+        text-transform: uppercase;
+
+        &::after {
+            content: "";
+            display: block;
+            background-image: url(../foto/garpet.png);
+            width: 60px;
+            position: absolute;
+            margin-top: 5px;
+            transform: translate(-50%, 0px);
+            left: 50%;
+            height: 3px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+    &__cart__title__h6 {
+        @include fontAll(18px, 300, $text);
+        text-align: center;
+        line-height: 22px;
+        margin-top: 24px;
+    }
+
+}
+
+// slaeder-top end
+
+
+// About start
+
+.About {
+    position: relative;
+    margin-bottom: 80px;
+
+    &__title__h2 {
+        @include fontAll(48px, 700, #132845);
+        line-height: 58px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    &__title__h5 {
+        @include fontAll(16px, 600, $coc);
+        text-transform: uppercase;
+        line-height: 19px;
+        letter-spacing: 0.1em;
+        margin-bottom: 22px;
+    }
+
+    &__text {
+        @include fontAll(18px, 400, #132845);
+        line-height: 183.4%;
+        max-width: 520px;
+        margin-bottom: 48px;
+        overflow: hidden;
+        max-height: 360px;
+    }
+
+    &__link {
+        @include fontAll(16px, 600, $gren);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        position: relative;
+        padding: 20px 85px 20px 31px;
+        border: 2px solid $gren;
+        margin-top: 40px;
+        background-color: $text;
+        @extend%transition;
+
+        &:hover {
+            background-color: $gren;
+            color: $text;
+        }
+
+        span {
+            position: absolute;
+            @extend%transition;
+            top: 0;
+            right: 0;
+            background-color: $gren;
+            color: $text;
+            padding: 20px;
+        }
+    }
+
+
+    &__cart__img {
+        @include fiximg(550px, 600px, true);
+        margin-left: 30px;
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+
+.About__link:hover span {
+    background-color: $text;
+    color: $gren;
+    border: 0;
+}
+
+// About end
+
+// advantages start
+
+.advantages {
+    position: relative;
+    background-color: $gren;
+    width: 100%;
+    padding: 70px;
+    margin-bottom: 70px;
+
+    &__title__h2 {
+        @include fontAll(48px, 700, $text);
+        line-height: 58px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+
+    &__title__h5 {
+        @include fontAll(16px, 600, rgba(255, 255, 255, 0.7));
+        line-height: 133.4%;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+
+    &__cart {
+        width: 220px;
+        min-height: 130px;
+        text-align: center;
+    }
+
+    &__cart__img {
+        @include fiximg(60px, 60px, true);
+        max-width: 60px;
+        margin: 0 auto;
+    }
+
+    &__cart__title__h3 {
+        @include fontAll(24px, 700, $text);
+        text-transform: uppercase;
+        line-height: 29px;
+        margin-top: 14px;
+    }
+
+    &__cart__text {
+        @include fontAll(18px, 300, $text);
+        text-align: center;
+        padding-top: 5px;
+    }
+
+    &__top {
+        display: flex;
+        align-items: flex-start;
+        margin-top: 32px;
+        justify-content: space-between;
+    }
+}
+
+// advantages end
+
+
+
+// Projects start
+
+.Projects {
+    position: relative;
+    margin-bottom: 80px;
+
+    &__title__h2 {
+        @include fontAll(48px, 700, #132845);
+        line-height: 58px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 13px;
+    }
+
+    &__title__h4 {
+        @include fontAll(16px, 600, $coc);
+        line-height: 19px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 36px;
+    }
+
+    &__cart {
+        box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.06);
+        width: 360px;
+        max-height: 550px;
+        @extend%transition;
+
+        &:hover {
+            box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.14);
+        }
+    }
+
+    &__cart__title__h3 {
+        @include fontAll(24px, 700, #132845);
+        line-height: 29px;
+        text-align: center;
+        padding: 0 10px;
+        margin: 24px 0 10px 0;
+    }
+
+    &__cart__text {
+        @include fontAll(18px, 400, #132845);
+        line-height: 177.4%;
+        text-align: center;
+        padding: 0 10px;
+        max-height: 120px;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    &__cart__img {
+        @include fiximg(360px, 240px, true);
+        position: relative;
+        overflow: hidden;
+        @extend%transition;
+
+        img {
+            @extend%transition;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &__cart__link {
+        @include fontAll(16px, 600, $gren);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        position: relative;
+        padding: 20px 85px 20px 31px;
+        border: 2px solid $gren;
+        margin-top: 40px;
+        background-color: $text;
+        @extend%transition;
+
+        &:hover {
+            background-color: $gren;
+            color: $text;
+        }
+
+        span {
+            position: absolute;
+            right: 0;
+            @extend%transition;
+            top: 0;
+            padding: 20px;
+            background-color: $gren;
+            color: $text;
+        }
+    }
+
+    &__cart__button {
+        display: flex;
+        padding-bottom: 40px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__top {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 60px;
+
+        .slick-slide {
+            margin: 0 10px;
+            margin-bottom: 20px;
+        }
+
+        .slick-prev {
+            font-size: 0;
+
+            &::after {
+                content: "";
+                display: block;
+                background-image: url(../foto/left1.png);
+                width: 50px;
+                position: absolute;
+                top: 50%;
+                left: -50px;
+                transform: translate(-50%, 0);
+                height: 34.53px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                z-index: 999;
+            }
+        }
+
+        .slick-next {
+            font-size: 0;
+
+            &::after {
+                content: "";
+                display: block;
+                font-size: 0;
+                background-image: url(../foto/rieth.png);
+                width: 50px;
+                position: absolute;
+                top: 50%;
+                right: -100px;
+                transform: translate(-50%, 0);
+                height: 34.53px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                z-index: 999;
+            }
+        }
+    }
+
+}
+
+
+.Projects__cart__link:hover>span {
+    background-color: $text;
+    color: $gren;
+    border: none;
+}
+
+
+// Projects end
+
+
+// rave stat
+
+.rave {
+    background-color: $fon;
+    position: relative;
+    padding: 60px 0 120px 0;
+
+    &__title__h2 {
+        @include fontAll(48px, 700, #132845);
+        line-height: 58px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 13px;
+    }
+
+    &__title__h4 {
+        @include fontAll(16x, 600, $coc);
+        line-height: 19px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 40px;
+    }
+
+    &__cart__img {
+        @include fiximg(212px, 140px, true);
+        text-align: center;
+    }
+
+    &__top {
+        .slick-slide {
+            margin: 0 10px;
+        }
+
+        .slick-dots {
+            display: flex;
+            position: absolute;
+            grid-gap: 10px;
+            margin-top: 42px;
+            left: 50%;
+            transform: translate(-50%, 0);
+
+
+
+            li {
+                background-color: rgba(181, 181, 181, 0.3);
+                width: 10px;
+                height: 10px;
+                margin: 0 10px;
+                font-size: 0;
+                border-radius: 50%;
+
+                button {
+                    font-size: 0;
+                    background-color: transparent;
+                }
+            }
+
+            .slick-active {
+                background-color: #15A484;
+                width: 16px;
+                height: 16px;
+                margin-top: -3px;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+// rave end
+
+
+// Contacts start
+
+.Contacts {
+    position: relative;
+    margin-bottom: 70px;
+
+    &__carta {
+        height: 500px;
+        position: relative;
+    }
+
+    &__contactis {
+        width: 360px;
+        max-height: 400px;
+        background-color: $text;
+        padding: 22px 28px 30px 28px;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
+    &__title__h2 {
+        @include fontAll(30px, 700, #132845);
+        line-height: 37px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    &__title__h4 {
+        @include fontAll(16px, 600, #132845);
+        line-height: 19px;
+        text-transform: uppercase;
+
+        span {
+            color: $coc;
+            margin-right: 5px;
+            letter-spacing: 0.1em;
+        }
+    }
+
+    &____text {
+        @include fontAll(16px, 600, #132845);
+        margin-top: 25px;
+        margin-bottom: 25px;
+        line-height: 19px;
+
+        span {
+            text-transform: uppercase;
+            color: $coc;
+            letter-spacing: 0.1em;
+            margin-right: 5px;
+        }
+    }
+
+    &___menu {
+        display: flex;
+        align-items: center;
+    }
+
+    &____title__h5 {
+        @include fontAll(16px, 600, $coc);
+        line-height: 16px;
+        letter-spacing: 0.1em;
+        margin-right: 19px;
+        text-transform: uppercase;
+    }
+
+    &__menu__ul {
+        display: flex;
+        align-items: center;
+
+        li+li {
+            margin-left: 20px;
+        }
+    }
+
+    &__minu__link {
+        @include fiximg(34px, 34px, true);
+    }
+}
+
+// Contacts end
+
+
+// registration start
+
+.registration {
+    position: relative;
+    margin-bottom: 80px;
+
+    &__title__h2 {
+        @include fontAll(48px, 700, #132845);
+        line-height: 58px;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 13px;
+    }
+
+    &__title__h4 {
+        @include fontAll(16px, 600, $coc);
+        line-height: 19px;
+        text-align: center;
+        letter-spacing: 0.1em;
+        line-height: 19px;
+        margin-bottom: 35px;
+        text-transform: uppercase;
+    }
+
+    &__input {
+        background-color: $fon;
+        border: none;
+        outline: none;
+        margin-right: 10px;
+        width: 560px;
+        margin-bottom: 20px;
+        padding: 20px;
+        height: 60px;
+        border-radius: 2px;
+        @include fontAll(16px, 400, #132845);
+        line-height: 19px;
+
+        &::placeholder {
+            @include fontAll(16px, 400, #132845);
+        }
+    }
+
+    &__textarea {
+        background-color: $fon;
+        border: none;
+        outline: none;
+        resize: none;
+        width: 560px;
+        margin-bottom: 20px;
+        padding: 20px;
+        margin-left: 10px;
+        height: 140px;
+        border-radius: 2px;
+        @include fontAll(16px, 400, #132845);
+        line-height: 19px;
+
+        &::placeholder {
+            @include fontAll(16px, 400, #132845);
+        }
+    }
+
+    &__form {
+        display: flex;
+        align-items: center;
+    }
+
+    &__button {
+        @include fontAll(16px, 600, $gren);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        position: relative;
+        padding: 20px 85px 20px 31px;
+        border: 2px solid $gren;
+        margin-top: 40px;
+        background-color: $text;
+        @extend%transition;
+
+        &:hover {
+            background-color: $gren;
+            color: $text;
+        }
+
+        span {
+            padding: 20px;
+            background-color: $gren;
+            color: $text;
+            @extend%transition;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+
+    &__button__center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.registration__button:hover>span {
+    background-color: $text;
+    color: $gren;
+    border: 0;
+}
+
+// registration end
+
+
+
+// footer stert
+
+.footer {
+    width: 100%;
+    min-height: 300px;
+    background-color: #0B2625;
+    padding: 26px 0 50px 0;
+
+    &__menu__ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 914px;
+        flex-wrap: wrap;
+        margin: 0 auto;
+
+        li+li {
+            margin-left: 20px;
+        }
+    }
+
+    &__minu__link {
+        @include fontAll(14px, 600, $text);
+        text-transform: uppercase;
+        line-height: 17px;
+        @extend%transition;
+
+        &:hover {
+            color: $gren;
+        }
+    }
+
+    &__pro__main {
+        border-bottom: 1px solid rgba(240, 243, 248, 0.3);
+        padding-bottom: 26px;
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 50px;
+    }
+
+    &__logo {
+        @include fiximg(266px, 104, true);
+    }
+
+    &__link {
+        @include fontAll(16px, 400, #738D8C);
+        text-align: right;
+        line-height: 30px;
+    }
+}
+
+// footer end
+
+
+
+@media (max-width:1438px) {
+    .continer {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+
+@media (max-width:1340px) {
+    .continer {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    .slaeder__cart1 {
+        height: 600px !important;
+    }
+
+
+
+    .Projects__cart__img {
+        width: 100%;
+    }
+}
+
+
+@media (max-width:1250px) {
+    .Projects__top .slick-prev::after {
+        content: "";
+        position: absolute;
+        bottom: -50px;
+        top: 100%;
+        left: 40%;
+        margin-top: 15px;
+        transform: translate(-400%, 0);
+    }
+
+    .Projects__top .slick-next::after {
+        content: "";
+        position: absolute;
+        bottom: -50px;
+        top: 100%;
+        margin-top: 15px;
+        right: 20%;
+        transform: translate(-50%, 0);
+    }
+
+
+
+    .registration__textarea {
+        width: 450px;
+    }
+
+    .registration__input {
+        width: 450px;
+    }
+
+    .registration__form {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .Contacts__carta {
+        height: 400px;
+        position: relative;
+    }
+
+    .Contacts__contactis {
+        max-height: 350px;
+    }
+}
+
+
+@media (max-width:1180px) {
+    .header__menu__ul li+li {
+        margin-left: 30px;
+    }
+
+    .slaeder__cart1 {
+        height: 550px !important;
+    }
+
+
+
+    .About__cart__img {
+        width: 450px;
+        height: 550px;
+        margin-left: 30px;
+    }
+
+    .About__text {
+        max-height: 330px;
+    }
+
+    .header__menu__ul li+li {
+        margin-left: 20px;
+    }
+
+    .header__burger {
+        display: block;
+    }
+
+    .header__main {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 100%;
+        z-index: 9999999999999999999999999999;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .header__nav {
+        background-color: #0B2625;
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .header__menu__ul {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 60px;
+        justify-content: center;
+    }
+
+    .header__menu__ul li+li {
+        margin-left: 0px;
+        margin-top: 30px;
+    }
+
+    .header__minu__link {
+        color: $text;
+    }
+
+
+    .header__menu__ul li:hover>.header__minu__link::after {
+        display: none;
+        position: absolute;
+        margin-top: 40px;
+        border-bottom: none;
+    }
+
+    .header__nav__button__x {
+        display: block;
+        background-color: transparent;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        @include fontAll(30px, 700, $text);
+    }
+
+    #chikit {
+        display: none;
+    }
+
+    #chikit:checked~.header__main {
+        display: block;
+    }
+}
+
+@media (max-width:1050px) {
+    .advantages__top {
+        flex-wrap: wrap;
+    }
+
+    .registration__textarea {
+        width: 400px;
+    }
+
+    .registration__input {
+        width: 400px;
+    }
+
+    .registration__form {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .registration {
+        margin-bottom: 60px;
+    }
+
+    .Contacts {
+        position: relative;
+        margin-bottom: 60px;
+    }
+
+    .rave {
+        background-color: #F1F1F1;
+        position: relative;
+        padding: 50px 0 100px 0;
+    }
+
+    .About__cart__img {
+        width: 400px;
+        height: 500px;
+        margin-left: 30px;
+    }
+}
+
+@media (max-width:950px) {
+    .slaeder__cart1 {
+        height: 450px !important;
+    }
+
+    .slaeder__cart__title__h1 {
+        font-size: 36px;
+    }
+
+    .About__top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .About__text {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .About__cart {
+        margin-bottom: 60px;
+    }
+
+    .About {
+        position: relative;
+        margin-bottom: 0;
+    }
+
+    .About__cart__img {
+        width: auto;
+        height: auto;
+        max-height: 600px;
+        margin-left: 0px;
+    }
+
+
+    .registration__form {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    .registration__textarea {
+        width: 450px;
+        margin-left: 0;
+    }
+
+    .registration__input {
+        width: 450px;
+        margin-right: 0;
+    }
+
+    .registration__button {
+        margin-top: 20px;
+    }
+
+    .registration__title__h2 {
+        font-size: 40px;
+    }
+
+    .rave__title__h2 {
+        font-size: 40px;
+    }
+
+    .Projects__title__h2 {
+        font-size: 40px;
+    }
+
+    .advantages__title__h2 {
+        font-size: 40px;
+    }
+
+    .About__title__h2 {
+        font-size: 40px;
+    }
+
+    .slaeder {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+@media (max-width:800px) {
+    .slaeder__cart1 {
+        height: 400px !important;
+    }
+
+    .slaeder__cart1 {
+        height: 400px !important;
+    }
+
+    .advantages {
+        margin-bottom: 40px;
+    }
+
+    .footer__menu__ul {
+        justify-content: center;
+    }
+
+    .Contacts {
+        margin-bottom: 40px;
+    }
+
+
+    .continer {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .footer__menu__ul li {
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .footer__pro__main {
+        padding-bottom: 10px;
+    }
+
+
+    .footer__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        flex-direction: column;
+    }
+
+    .footer__link {
+        text-align: center;
+    }
+
+    .About__title__h2 {
+        font-size: 35px;
+    }
+
+    .advantages__title__h2 {
+        font-size: 35px;
+    }
+
+    .Projects__title__h2 {
+        font-size: 40px;
+    }
+
+    .rave__title__h2 {
+        font-size: 35px;
+    }
+
+    .registration__title__h2 {
+        font-size: 35px;
+    }
+
+    .header__nav {
+        width: 80%;
+    }
+
+    .advantages__top {
+        justify-content: center;
+    }
+}
+
+
+@media (max-width:670px) {
+    .slaeder__cart1 {
+        height: 350px !important;
+    }
+
+    .About__title__h2 {
+        margin-bottom: 0;
+    }
+
+    .About__title__h5 {
+        margin-bottom: 5px;
+    }
+
+    .Projects__top .slick-prev::after {
+        content: "";
+        position: absolute;
+        bottom: -50px;
+        top: 100%;
+        left: 30%;
+        margin-top: 15px;
+        transform: translate(-50%, 0);
+    }
+
+
+
+    .advantages {
+        padding: 70px 0 70px 0;
+    }
+
+    .Contacts__title__h2 {
+        font-size: 25px;
+    }
+
+    .Contacts__contactis {
+        width: 320px;
+    }
+
+    .Contacts___menu {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+
+@media (max-width:480px) {
+
+
+    .slaeder__cart__title__h1 {
+        font-size: 25px;
+    }
+
+    .registration__input {
+        width: 300px;
+    }
+
+    .registration__textarea {
+        width: 300px;
+    }
+
+    .advantages__top {
+        justify-content: center;
+    }
+
+    .advantages__cart {
+        margin-bottom: 10px;
+    }
+
+    .slaeder__cart1 {
+        height: 300px !important;
+    }
+
+    .header__nav {
+        width: 100%;
+    }
+}
+
+
+@media (max-width:400px) {
+    .continer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .header__logo {
+        width: 220px;
+        height: 61px;
+        margin-top: 14px;
+    }
+
+    .Contacts__contactis {
+        width: 300px;
+    }
+}
